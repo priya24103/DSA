@@ -1,0 +1,25 @@
+class Solution {
+    public int furthestDistanceFromOrigin(String moves) {
+        int l =0, r =0 , us = 0;
+        for(char ch : moves.toCharArray())
+        {
+            switch(ch)
+            {
+                case 'L':
+                    l++;
+                    break;
+                case 'R':
+                    r++;
+                    break;
+                case '_':
+                    us++;
+                    break;
+            }
+        }
+        int left = Math.abs(r-l-us);
+        int right = Math.abs(r-l+us);
+
+        return left > right ? left : right;
+
+    }
+}
